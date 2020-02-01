@@ -1,5 +1,6 @@
 package com.cs5520.numad20s_rouniyin;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,7 +21,8 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     public void redirectToLinkCollector(View view){
-
+        Intent intent = new Intent(this, LinkCollectorActivity.class);
+        startActivity(intent);
     }
 
     public void convertCurrency(View view){
@@ -52,14 +54,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
