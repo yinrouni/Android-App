@@ -126,8 +126,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent("com.cs5520.numad20s_rouniyin");
         Log.d("wake:", "yes");
        // PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
-        am.setInexactRepeating(AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis(), 1000*5, pendingIntent);
+        assert am != null;
+        am.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime(), 1000 * 60,pendingIntent);
 
 //        alarmReceiver = new Alarm();
 //        IntentFilter a = new IntentFilter();
@@ -140,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void stopWatch(View view){
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        assert manager != null;
         manager.cancel(pendingIntent);
         Toast.makeText(this, "Alarm Canceled", Toast.LENGTH_SHORT).show();
     }

@@ -9,15 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_ry_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver
-            android:name=".AlarmReceiver"
-            android:enabled="true"
-            android:exported="true"></receiver>
-
-        <service
-            android:name=".MyService"
-            android:enabled="true"
-            android:exported="true" />
 
         <receiver
             android:name=".Alarm"

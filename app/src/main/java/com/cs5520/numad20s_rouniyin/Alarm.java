@@ -9,6 +9,8 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class  Alarm extends BroadcastReceiver {
 
     @Override
@@ -17,24 +19,13 @@ public class  Alarm extends BroadcastReceiver {
         // an Intent broadcast.
 //        throw new UnsupportedOperationException("Not yet implemented");
         Log.d("status", "received");
-        Toast.makeText(context, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show();
-    }
-    public void setAlarm(Context context)
-    {
-        AlarmManager am =( AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
-        Intent i = new Intent("com.cs5520.numad20s_rouniyin");
-        Log.d("wake:", "yes");
-        PendingIntent pi = PendingIntent.getBroadcast(context, 0, i, 0);
-        am.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            SystemClock.elapsedRealtime(), 1000*5, pi);
-}
 
-    public void cancelAlarm(Context context)
-    {
-        Intent intent = new Intent(context, Alarm.class);
-        PendingIntent sender = PendingIntent.getBroadcast(context, 0, intent, 0);
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(sender);
+        Toast.makeText(context,Calendar.getInstance().getTime().toString() , Toast.LENGTH_LONG).show();
+
+//        Intent intent1 = new Intent(context, AlarmReceiver.class);
+//        final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent1, 0);
+//        final AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+//        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, pendingIntent);
     }
 
 }
