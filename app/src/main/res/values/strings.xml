@@ -8,6 +8,8 @@
     <string name="info">Name: Rouni Yin\nEmail: yin.ro@husky.neu.edu</string>
     <string name="link_collector">Link Collector</string>
     <string name="title_activity_link_collector">Link Collector</string>
-    <string name="url">URL</string>
+    <string name="url">URL (e.g. https://www.google.com)</string>
     <string name="name">Name</string>
+    <string name="find_prime">Find Prime</string>
+    <string name="stop">Stop</string>
 </resources>

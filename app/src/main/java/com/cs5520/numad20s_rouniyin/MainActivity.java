@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LinkCollectorActivity.class);
         startActivity(intent);
     }
+    public void clickToFindPrimes(View view){
+        Intent intent = new Intent(this, FindPrimesActivity.class);
+        startActivity(intent);
+    }
 
     public void convertCurrency(View view){
         EditText dollarText = findViewById(R.id.dollarText);

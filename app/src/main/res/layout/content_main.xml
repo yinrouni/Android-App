@@ -16,11 +16,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="100dp"
         android:text="Hello World!"
+        app:layout_constraintBottom_toTopOf="@+id/InfoView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/InfoView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
@@ -47,7 +47,8 @@
         app:layout_constraintBottom_toTopOf="@id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/dollarView" />
+        app:layout_constraintTop_toTopOf="@+id/dollarView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/dollarView"
@@ -64,12 +65,12 @@
         android:id="@+id/aboutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="184dp"
         android:onClick="showNameEmail"
         android:text="@string/about"
         app:layout_constraintBottom_toTopOf="@+id/linkCollector"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InfoView" />
 
@@ -77,7 +78,6 @@
         android:id="@+id/InfoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/aboutButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +92,21 @@
         android:text="@string/link_collector"
         app:layout_constraintBottom_toTopOf="@+id/dollarText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aboutButton" />
+        app:layout_constraintTop_toBottomOf="@+id/findPrimeButton" />
+
+    <Button
+        android:id="@+id/findPrimeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickToFindPrimes"
+        android:text="@string/find_prime"
+        app:layout_constraintBottom_toTopOf="@+id/dollarText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutButton"
+        app:layout_constraintVertical_bias="0.295" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
