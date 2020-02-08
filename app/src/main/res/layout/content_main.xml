@@ -70,7 +70,7 @@
         android:text="@string/about"
         app:layout_constraintBottom_toTopOf="@+id/linkCollector"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InfoView" />
 
@@ -93,20 +93,48 @@
         app:layout_constraintBottom_toTopOf="@+id/dollarText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/findPrimeButton" />
+        app:layout_constraintStart_toEndOf="@+id/findPrimeButton"
+        app:layout_constraintTop_toBottomOf="@+id/stopTime" />
 
     <Button
         android:id="@+id/findPrimeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
         android:onClick="clickToFindPrimes"
         android:text="@string/find_prime"
         app:layout_constraintBottom_toTopOf="@+id/dollarText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintEnd_toStartOf="@+id/linkCollector"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/watchTime" />
+
+    <Button
+        android:id="@+id/stopTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:onClick="stopWatch"
+        android:text="@string/stop_watch"
+        app:layout_constraintBottom_toTopOf="@+id/linkCollector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/watchTime"
         app:layout_constraintTop_toBottomOf="@+id/aboutButton"
-        app:layout_constraintVertical_bias="0.295" />
+        app:layout_constraintVertical_bias="0.218" />
+
+    <Button
+        android:id="@+id/watchTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="78dp"
+        android:onClick="watchTime"
+        android:text="@string/watch_time"
+        app:layout_constraintBottom_toTopOf="@+id/findPrimeButton"
+        app:layout_constraintEnd_toStartOf="@+id/stopTime"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

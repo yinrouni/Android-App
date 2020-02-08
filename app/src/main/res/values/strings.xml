@@ -12,4 +12,6 @@
     <string name="name">Name</string>
     <string name="find_prime">Find Prime</string>
     <string name="stop">Stop</string>
+    <string name="stop_watch">Stop Watch</string>
+    <string name="watch_time">Watch Time</string>
 </resources>

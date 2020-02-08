@@ -1,6 +1,9 @@
 package com.cs5520.numad20s_rouniyin;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.os.SystemClock;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +26,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     BroadcastReceiver receiver;
+    BroadcastReceiver alarmReceiver;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
+
 
 
     public void redirectToLinkCollector(View view){
@@ -66,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
         sendBroadcast(intent);
         configureReceiver();
 
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(receiver);
+        unregisterReceiver(alarmReceiver);
     }
 
     private void configureReceiver() {
@@ -106,5 +114,18 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void watchTime(View view){
+        alarmReceiver = new AlarmReceiver();
+        IntentFilter i = new IntentFilter();
+        i.addAction("numad20s_rouniyin");
+
+        registerReceiver(alarmReceiver, i);
+
+    }
+
+    public void stopWatch(View view){
+        alarmReceiver.abortBroadcast();
+    }
 
 }
