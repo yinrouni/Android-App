@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,13 +23,15 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
     BroadcastReceiver receiver;
-    BroadcastReceiver alarmReceiver;
+    Alarm alarmReceiver;
     private AlarmManager alarmMgr;
-    private PendingIntent alarmIntent;
+    private Intent alarmIntent;
+    private PendingIntent pendingIntent;
 
 
 
@@ -74,6 +77,9 @@ public class MainActivity extends AppCompatActivity {
         sendBroadcast(intent);
         configureReceiver();
 
+        alarmIntent = new Intent(this, Alarm.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+
     }
 
     @Override
@@ -116,16 +122,26 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void watchTime(View view){
-        alarmReceiver = new AlarmReceiver();
-        IntentFilter i = new IntentFilter();
-        i.addAction("numad20s_rouniyin");
+        AlarmManager am =( AlarmManager)this.getSystemService(Context.ALARM_SERVICE);
+        Intent i = new Intent("com.cs5520.numad20s_rouniyin");
+        Log.d("wake:", "yes");
+       // PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
+        am.setInexactRepeating(AlarmManager.RTC_WAKEUP,
+                System.currentTimeMillis(), 1000*5, pendingIntent);
 
-        registerReceiver(alarmReceiver, i);
+//        alarmReceiver = new Alarm();
+//        IntentFilter a = new IntentFilter();
+//        a.addAction("numad20s_rouniyin");
+//
+//        registerReceiver(alarmReceiver, a);
+        Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
 
     }
 
     public void stopWatch(View view){
-        alarmReceiver.abortBroadcast();
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        manager.cancel(pendingIntent);
+        Toast.makeText(this, "Alarm Canceled", Toast.LENGTH_SHORT).show();
     }
 
 }

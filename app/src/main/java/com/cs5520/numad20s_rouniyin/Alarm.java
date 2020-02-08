@@ -9,13 +9,14 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.widget.Toast;
 
-public class Alarm extends BroadcastReceiver {
+public class  Alarm extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO: This method is called when the BroadcastReceiver is receiving
         // an Intent broadcast.
 //        throw new UnsupportedOperationException("Not yet implemented");
+        Log.d("status", "received");
         Toast.makeText(context, "Alarm !!!!!!!!!!", Toast.LENGTH_LONG).show();
     }
     public void setAlarm(Context context)
