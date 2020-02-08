@@ -1,6 +1,8 @@
 package com.cs5520.numad20s_rouniyin;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,6 +21,8 @@ import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+    BroadcastReceiver receiver;
+
 
     public void redirectToLinkCollector(View view){
         Intent intent = new Intent(this, LinkCollectorActivity.class);
@@ -57,6 +61,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = new Intent();
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        sendBroadcast(intent);
+        configureReceiver();
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
+    }
+
+    private void configureReceiver() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.intent.action.ACTION_POWER_DISCONNECTED");
+        filter.addAction("android.intent.action.ACTION_POWER_CONNECTED");
+        receiver = new MyReceiver();
+        registerReceiver(receiver, filter);
 
     }
 
@@ -81,4 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
