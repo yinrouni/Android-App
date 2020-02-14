@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FindPrimesActivity.class);
         startActivity(intent);
     }
+    public void clickToGetLocation(View view){
+        Intent intent = new Intent(this, GetLocationActivity.class);
+        startActivity(intent);
+    }
 
     public void convertCurrency(View view){
         EditText dollarText = findViewById(R.id.dollarText);

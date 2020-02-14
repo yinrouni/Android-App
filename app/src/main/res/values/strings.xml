@@ -14,4 +14,5 @@
     <string name="stop">Stop</string>
     <string name="stop_watch">Stop Watch</string>
     <string name="watch_time">Watch Time</string>
+    <string name="get_location">Get Location</string>
 </resources>
