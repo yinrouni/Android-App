@@ -32,8 +32,6 @@ public class LinkCollectionFragment extends Fragment {
 
     private EditText linkName;
     private EditText linkUrl;
-    private TextView linkId;
-
 
     public static LinkCollectionFragment newInstance() {
         return new LinkCollectionFragment();
@@ -51,7 +49,6 @@ public class LinkCollectionFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(LinkCollectionViewModel.class);
 
-        linkId = getView().findViewById(R.id.linkId);
         linkUrl = getView().findViewById(R.id.linkURL);
         linkName = getView().findViewById(R.id.linkName);
 
@@ -81,7 +78,6 @@ public class LinkCollectionFragment extends Fragment {
     }
 
     private void clearFields(){
-        linkId.setText("");
         linkName.setText("");
         linkUrl.setText("");
     }
@@ -108,7 +104,6 @@ public class LinkCollectionFragment extends Fragment {
                     Snackbar.make(v, "Incomplete information",
                             Snackbar.LENGTH_LONG).setAction("Action",
                             null).show();
-                    linkId.setText("Incomplete information");
                 }
 
             }
