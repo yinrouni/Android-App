@@ -29,7 +29,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class LinkCollectorActivity extends AppCompatActivity {
+public class LinkCollectorActivityI extends AppCompatActivity {
 
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayAdapter<String> adapter;
@@ -37,7 +37,7 @@ public class LinkCollectorActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_link_collector);
+        setContentView(R.layout.activity_link_collector_i);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -66,8 +66,8 @@ public class LinkCollectorActivity extends AppCompatActivity {
 
             public void popUpInput() {
                 AlertDialog.Builder builder =
-                        new AlertDialog.Builder(LinkCollectorActivity.this);
-                LayoutInflater inflater = LayoutInflater.from(LinkCollectorActivity.this);
+                        new AlertDialog.Builder(LinkCollectorActivityI.this);
+                LayoutInflater inflater = LayoutInflater.from(LinkCollectorActivityI.this);
                 final View inputView = inflater.inflate(R.layout.input_dialog, null);
                 builder.setView(inputView);
 

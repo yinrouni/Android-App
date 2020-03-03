@@ -15,4 +15,14 @@
     <string name="stop_watch">Stop Watch</string>
     <string name="watch_time">Watch Time</string>
     <string name="get_location">Get Location</string>
+    <string name="link_id">Link ID</string>
+    <string name="not_assigned">Not assigned</string>
+    <string name="link_url">URL</string>
+    <string name="e_g_https_www_google_com">(e.g. https://www.google.com)</string>
+    <string name="add">Add</string>
+    <string name="find">Find</string>
+    <string name="delete">Delete</string>
+    <string name="clear">Clear</string>
+    <string name="link_collector_i">Link Collector I</string>
+    <string name="link_collector_ii">Link Collector II</string>
 </resources>

@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".LinkCollectorActivity"
-    tools:showIn="@layout/activity_link_collector">
+    tools:context=".LinkCollectorActivityI"
+    tools:showIn="@layout/activity_link_collector_i">
 
     <ListView
         android:id="@+id/linkList"
