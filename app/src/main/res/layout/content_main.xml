@@ -151,19 +151,4 @@
         app:layout_constraintStart_toEndOf="@+id/linkCollector"
         app:layout_constraintTop_toBottomOf="@+id/stopTime" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="83dp"
-        android:onClick="redirectToLinkCollector"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/watchTime"
-        app:layout_constraintEnd_toStartOf="@+id/aboutButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

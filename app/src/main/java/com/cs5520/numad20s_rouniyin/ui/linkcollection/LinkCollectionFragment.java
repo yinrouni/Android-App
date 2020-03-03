@@ -17,9 +17,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cs5520.numad20s_rouniyin.LinkItem;
 import com.cs5520.numad20s_rouniyin.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -98,8 +100,14 @@ public class LinkCollectionFragment extends Fragment {
                     LinkItem link = new LinkItem(name, url);
                     mViewModel.insertLink(link);
                     clearFields();
+                    Snackbar.make(v, "Added to the list",
+                            Snackbar.LENGTH_LONG).setAction("Action",
+                            null).show();
                 }
                 else {
+                    Snackbar.make(v, "Incomplete information",
+                            Snackbar.LENGTH_LONG).setAction("Action",
+                            null).show();
                     linkId.setText("Incomplete information");
                 }
 
