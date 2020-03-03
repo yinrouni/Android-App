@@ -16,6 +16,7 @@ import java.util.List;
 public class LinkListAdapter extends RecyclerView.Adapter<LinkListAdapter.ViewHolder> {
     private int linkItemLayout;
     private List<LinkItem> linkList;
+    private OnItemClickListener mListener;
 
     public LinkListAdapter(int layoutId){
         linkItemLayout = layoutId;
@@ -25,13 +26,24 @@ public class LinkListAdapter extends RecyclerView.Adapter<LinkListAdapter.ViewHo
         linkList = links;
         notifyDataSetChanged();
     }
+    public List<LinkItem> getLinkList(){
+     return linkList;
+    }
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+
+    }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(
                 parent.getContext()).inflate(linkItemLayout, parent, false);
-        ViewHolder myViewHolder = new ViewHolder(view);
+        ViewHolder myViewHolder = new ViewHolder(view, mListener);
         return myViewHolder;
     }
 
@@ -49,9 +61,22 @@ public class LinkListAdapter extends RecyclerView.Adapter<LinkListAdapter.ViewHo
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView item;
-        ViewHolder(View itemView) {
+        ViewHolder(View itemView, final OnItemClickListener listener) {
             super(itemView);
             item = itemView.findViewById(R.id.link_row);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(position);
+                        }
+                    }
+
+                }
+            });
         }
     }
 }

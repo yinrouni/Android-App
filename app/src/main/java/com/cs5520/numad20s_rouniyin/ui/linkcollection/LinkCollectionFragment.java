@@ -3,6 +3,8 @@ package com.cs5520.numad20s_rouniyin.ui.linkcollection;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -62,9 +64,31 @@ public class LinkCollectionFragment extends Fragment {
         RecyclerView recyclerView;
 
         adapter = new LinkListAdapter(R.layout.link_list_item);
+        adapter.setOnItemClickListener(new LinkListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+               String url =  adapter.getLinkList().get(position).getUrl();
+               openWeb(url);
+            }
+        });
         recyclerView = getView().findViewById(R.id.link_recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
+
+    }
+
+    private void openWeb(String url)  {
+        Uri webpage = Uri.parse(url);
+        Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
+        if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+            startActivity(intent);
+        }
+        else{
+//            Snackbar.make(v, "Can't open the link.",Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show();
+            Snackbar.make(getView(),"Can't open the link.",Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
 
     }
 
