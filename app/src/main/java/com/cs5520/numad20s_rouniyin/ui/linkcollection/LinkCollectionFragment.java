@@ -84,8 +84,7 @@ public class LinkCollectionFragment extends Fragment {
             startActivity(intent);
         }
         else{
-//            Snackbar.make(v, "Can't open the link.",Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show();
+
             Snackbar.make(getView(),"Can't open the link.",Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
